@@ -12,17 +12,17 @@
 class GameView :public QGraphicsView
 {
 public:
-	explicit GameView(GameController *controller,QWidget* parent);
+	explicit GameView(GameController* controller, QWidget* parent);
 
 protected:
 	void mousePressEvent(QMouseEvent* e) override;
+	void mouseDoubleClickEvent(QMouseEvent* e) override;
 
 private:
 	void initBG();
 
-	
+
 	GameController* controller;
-	
 };
 
 #endif // GAMEVIEW_H

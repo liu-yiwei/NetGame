@@ -28,6 +28,12 @@
       <Extensions>moc;h;cpp</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
+    <Filter Include="Source Files\modles">
+      <UniqueIdentifier>{b7b7b6db-b616-445a-9582-4434caa751f4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\modles">
+      <UniqueIdentifier>{be6e9ae2-4307-4761-b200-7ee8a9a2d8f7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -54,9 +60,6 @@
     <ClCompile Include="Bead.h">
       <Filter>Header Files</Filter>
     </ClCompile>
-    <ClCompile Include="Bead.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GameController.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -65,6 +68,12 @@
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_GameController.cpp">
       <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CheckerBoard.cpp">
+      <Filter>Source Files\modles</Filter>
+    </ClCompile>
+    <ClCompile Include="Bead.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -87,6 +96,9 @@
     </ClInclude>
     <ClInclude Include="contants.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CheckerBoard.h">
+      <Filter>Header Files\modles</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

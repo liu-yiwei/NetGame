@@ -12,7 +12,6 @@ void GameThread::run()
 	QTcpSocket tcpSocket;
 	if (!tcpSocket.setSocketDescriptor(socketDescriptor))
 	{
-		emit error(tcpSocket.error);
 		return;
 	}
 

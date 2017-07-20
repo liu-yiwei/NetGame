@@ -1,6 +1,6 @@
 #include "gameview.h"
 #include "Bead.h"
-
+#include "contants.h"
 
 GameView::GameView(GameController* controller, QWidget* parent)
 	: controller(controller),
@@ -8,15 +8,14 @@ GameView::GameView(GameController* controller, QWidget* parent)
 {
 	initBG();
 	setRenderHint(QPainter::Antialiasing);
-	//fitInView(controller->scene->sceneRect(), Qt::KeepAspectRatioByExpanding);
-	
 }
 
 void
 GameView::mousePressEvent(QMouseEvent* e)
 {
-	this->scene()->addItem(new Bead(e->x(), e->y()));
+	this->controller->generateBeads(e->x() / 40, e->y() / 40, colors::blue);
 }
+
 
 void GameView::initBG()
 {

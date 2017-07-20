@@ -75,6 +75,7 @@
   <ItemGroup>
     <ClCompile Include="Bead.cpp" />
     <ClCompile Include="Bead.h" />
+    <ClCompile Include="CheckerBoard.cpp" />
     <ClCompile Include="GameController.cpp" />
     <ClCompile Include="GameScene.cpp" />
     <ClCompile Include="GameView.cpp" />
@@ -112,6 +113,7 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="CheckerBoard.h" />
     <ClInclude Include="contants.h" />
     <CustomBuild Include="GameController.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>
