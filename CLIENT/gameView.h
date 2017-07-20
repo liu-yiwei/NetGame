@@ -16,7 +16,6 @@ public:
 
 protected:
 	void mousePressEvent(QMouseEvent* e) override;
-	void mouseDoubleClickEvent(QMouseEvent* e) override;
 
 private:
 	void initBG();

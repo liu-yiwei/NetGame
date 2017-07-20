@@ -42,9 +42,6 @@
     <ClCompile Include="GeneratedFiles\qrc_CLIENT.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
-    <ClCompile Include="GameScene.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="GameView.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -88,9 +85,6 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="GameScene.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="GameView.h">
       <Filter>Header Files</Filter>
     </ClInclude>

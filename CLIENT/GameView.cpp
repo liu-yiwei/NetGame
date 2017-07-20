@@ -1,19 +1,22 @@
 #include "gameview.h"
 #include "Bead.h"
 #include "contants.h"
+#include<GameController.h>
 
 GameView::GameView(GameController* controller, QWidget* parent)
 	: controller(controller),
-	  QGraphicsView(controller->scene, parent)
+	  QGraphicsView(controller->checkerboard, parent)
 {
 	initBG();
 	setRenderHint(QPainter::Antialiasing);
 }
 
+
+//这里就已经完成了坐标的转换，以后再也不会出现跟限速值有关的东西
 void
 GameView::mousePressEvent(QMouseEvent* e)
 {
-	this->controller->generateBeads(e->x() / 40, e->y() / 40, colors::blue);
+	this->controller->generateBeads(e->x() / 40, e->y() / 40, BeadColor::blue);
 }
 
 

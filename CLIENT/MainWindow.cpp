@@ -7,7 +7,6 @@
 #include "mainwindow.h"
 #include"GameController.h"
 #include "contants.h"
-#include "GameScene.h"
 #include"GameView.h"
 
 MainWindow::MainWindow(QWidget* parent)

@@ -3,26 +3,34 @@
 #include<qdebug.h>
 #include <QtCore>
 
-CheckerBoard::CheckerBoard(int gameSize)
-	: size(gameSize)
+CheckerBoard::CheckerBoard(int gameSize, QObject* parent)
+	: QGraphicsScene(parent),
+	  size(gameSize)
 {
-	//利用指针动态分配一个二维数组
-	array = new Bead*[size];
+	setSceneRect(0, 0, gameSize * 40, gameSize * 40);
+	//利用指针动态分配一个二维数组//
+	array = new Bead**[size];
 	for (int i = 0; i < size; ++i)
 	{
-		array[i] = new int[size];
+		array[i] = new Bead*[size];
 		for (int j = 0; j < size; j++)
 		{
-			array[i][j] = 0;
+			array[i][j] = new Bead();//who care
+			this->addItem(array[i][j]);
+			array[i][j]->setPos(i * 40 + 20, j * 40 + 20);
 		}
 	}
 }
 
 CheckerBoard::~CheckerBoard()
 {
+	delete array;
 }
 
-void 
+void
 CheckerBoard::addBead(int x, int y, BeadColor color) const
 {
+	array[x][y]->setVisible(true);
+	array[x][y]->set_color(color);
+	array[x][y]->set_direction(BeadDirection::still);
 }

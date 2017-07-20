@@ -12,6 +12,7 @@
 //枚举生命
 enum BeadColor
 {
+	no,//没有棋子，实际上和下面的nothing重合
 	red,
 	green,
 	black,
@@ -31,19 +32,22 @@ class Bead
 	:public QGraphicsItem
 {
 public:
-
-	
-
-
-	Bead(int x, int y, QColor color);
-
+	//本函数仅仅在项目初始化的时候调用
+	Bead();
 
 	//重写的最基本的函数
 	QRectF boundingRect() const override;
 	void paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*) override;
-
 	QPainterPath shape() const override;
 
+	//getter and setter
+	
+	//有关棋子行为的函数
+
+	BeadColor getColor() const;
+	BeadDirection getDirection() const;
+	void set_color(BeadColor color);
+	void set_direction(BeadDirection direction);
 private:
 
 	BeadColor color;

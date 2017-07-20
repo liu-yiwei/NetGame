@@ -3,7 +3,6 @@
 #include<QObject>
 #include<QTimer>
 #include "bead.h"
-#include "gamescene.h"
 #include"CheckerBoard.h"
 #include"contants.h"
 class QGraphicsScene;
@@ -21,9 +20,9 @@ public:
 	~GameController();
 
 	int gameSize;//∆Â≈Ã±ﬂ≥§
-	GameScene* scene;
 
-
+	CheckerBoard* checkerboard;
+	QTimer timer;
 public slots:
 
 	void gameOver();
@@ -34,6 +33,5 @@ public slots:
 private:
 
 
-	CheckerBoard* checkerboard;
-	QTimer timer;
+	
 };
