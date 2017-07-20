@@ -9,7 +9,7 @@ class GameScene :public QGraphicsScene
 {
 
 public:
-	GameScene(QWidget *parent);
+	GameScene(QObject *parent);
 
 protected:
 	void mousePressEvent(QMouseEvent *event);

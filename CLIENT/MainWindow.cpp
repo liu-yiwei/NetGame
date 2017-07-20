@@ -13,16 +13,13 @@
 MainWindow::MainWindow(QWidget* parent)
 	: QMainWindow(parent),
 	centralWidget(new QWidget(this)),
-	scene(new GameScene(centralWidget)),
-	view (new GameView(scene, centralWidget))
+	game(new GameController(this)),
+	view (new GameView(game, centralWidget))
 {
 	setCentralWidget(centralWidget);
 	setFixedSize(600, 600);
-
 	createActions();
 	createMenus();
-	initScene();
-	initSceneBG();
 }
 
 MainWindow::~MainWindow()
@@ -44,26 +41,4 @@ MainWindow::createActions()
 	aboutAction = new QAction(QString::fromUtf8("&about"), this);
 	aboutAction->setStatusTip("显示应用信息");
 	connect(aboutAction, &QAction::triggered, this, &MainWindow::close);
-}
-
-void
-MainWindow::initScene()
-{
-	scene->setSceneRect(0, 0, TILE_SIZE * 9, TILE_SIZE * 9);
-}
-
-void
-MainWindow::initSceneBG()
-{
-	QPixmap bg(TILE_SIZE, TILE_SIZE);
-	QPainter p(&bg);
-	p.setBrush(QBrush(Qt::white));
-	p.drawRect(0, 0, TILE_SIZE, TILE_SIZE);
-
-	view->setBackgroundBrush(QBrush(bg));
-}
-
-void
-MainWindow::mousePressEvent(QMouseEvent* e)
-{
 }

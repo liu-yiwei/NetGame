@@ -1,23 +1,28 @@
 #ifndef GAMEVIEW_H
 #define GAMEVIEW_H
 
-#include <QObject>
 #include <QWidget>
-#include <QGraphicsScene>
 #include<QGraphicsItem>
-#include<QMessageBox>
 #include<QGraphicsView>
 #include<QMouseEvent>
-#include<iostream>
 
+#include"GameController.h"
+#include "contants.h"
 
 class GameView :public QGraphicsView
 {
 public:
-	GameView(QGraphicsScene *scene, QWidget *parent);
+	explicit GameView(GameController *controller,QWidget* parent);
 
 protected:
-	void mousePressEvent(QMouseEvent *e);
+	void mousePressEvent(QMouseEvent* e) override;
+
+private:
+	void initBG();
+
+	
+	GameController* controller;
+	
 };
 
 #endif // GAMEVIEW_H
