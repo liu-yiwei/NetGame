@@ -57,3 +57,13 @@ void Bead::setState(BeadState direction)
 {
 	this->state = direction;
 }
+
+void Bead::toChoosed()
+{
+	this->setScale(1.33);
+}
+
+void Bead::toNoChoosed()
+{
+	this->setScale(1);
+}

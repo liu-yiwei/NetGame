@@ -1,5 +1,5 @@
 ///////////////////////////////////////////
-//棋子类
+//棋子类,和小旗子有关的一切行为都在这里
 //////////////////////////////////////////
 
 #ifndef BEAD_H
@@ -11,7 +11,6 @@
 const QString strColor[9] = {"#FFFFFF","#FF3030","#4EEE94","#FF7F00","#4682B4","#FFFF00","#8B6969","#A0522D","#9400D3"};
 
 ////////////////////////////////////////
-//枚举生命
 enum BeadColor
 {
 	no ,//没有棋子，实际上和下面的nothing重合
@@ -36,31 +35,26 @@ class Bead
 	:public QGraphicsObject
 {
 public:
-	//本函数仅仅在项目初始化的时候调用
-	Bead();
-
 	//重写的最基本的函数
+	Bead();//初始化一个看不见的棋子
 	QRectF boundingRect() const override;
 	void paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*) override;
 	QPainterPath shape() const override;
 
-	//getter and setter
 
 	//有关棋子行为的函数，就是状态的转换，由其他类来调用
-
-
-	//状态改变
-
-
-
 
 	//getter and setter
 	BeadColor getColor() const;
 	BeadState getState() const;
 	void setColor(BeadColor color);
 	void setState(BeadState state);
-private:
 
+	//棋子选中状态的改变
+	void toChoosed();
+	void toNoChoosed();
+
+private:
 	BeadColor color;
 	BeadState state;
 };

@@ -3,17 +3,67 @@
 #include<iostream>
 #include "AStar.h"
 #include<Vector>
-using namespace std;
 
+#define MaxLength 100    //用于优先队列（Open表）的数组
+#define Height     9    //地图高度
+#define Width      9    //地图宽度
 
+#define Reachable   0    //可以到达的结点
+#define Bar         1    //障碍物
+#define Pass        2    //需要走的步数
+#define Source      3    //起点
+#define Destination 4    //终点
 
+#define Sequential  0    //顺序遍历
+#define NoSolution  2    //无解决方案
+#define Infinity    0xfffffff
 
+#define East       (1 << 0)
+#define South_East (1 << 1)
+#define South      (1 << 2)
+#define South_West (1 << 3)
+#define West       (1 << 4)
+#define North_West (1 << 5)
+#define North      (1 << 6)
+#define North_East (1 << 7)
 
+typedef struct
+{
+	int x, y;
+	unsigned char reachable, sur, value;
+} MapNode;
 
+typedef struct Close
+{
+	MapNode *cur;
+	char vis;
+	struct Close *from;
+	float F, G;
+	int H;
+} Close;
 
+typedef struct //优先队列（Open表）
+{
+	int length;        //当前队列的长度
+	Close* Array[100];    //评价结点的指针
+} Open;
 
+const Point dir[8] =
+{
+	{ 0, 1 },   // East
+	{ 1, 1 },   // South_East
+	{ 1, 0 },   // South
+	{ 1, -1 },  // South_West
+	{ 0, -1 },  // West
+	{ -1, -1 }, // North_West
+	{ -1, 0 },  // North
+	{ -1, 1 }   // North_East
+};
 
-
+static MapNode graph[9][9];
+static int srcX, srcY, dstX, dstY;    //起始点、终点
+static Close close[9][9];
+static Close *start;
 // 优先队列基本操作
 void initOpen(Open *q)    //优先队列初始化
 {
@@ -193,9 +243,9 @@ Close* getShortest()
 }
 
 
-vector<Point>* printShortest()
+std::vector<Point>* printShortest()
 {
-	vector < Point>* list = new vector<Point>;
+	std::vector < Point>* list = new std::vector<Point>;
 	Close *p;
 	int step = 0;
 
@@ -233,44 +283,54 @@ vector<Point>* printShortest()
 	}
 }
 
+//
+//int main(int argc, const char **argv)
+//{
+//
+//	int** map1 = new int*[9];
+//	for (int i = 0; i < 9; i++)
+//	{
+//		map1[i] = new int[9];
+//		for (int j = 0; j < 9; j++)
+//		{
+//			if (i + j == 8)
+//				map1[i][j] = 1;
+//			else
+//			{
+//				map1[i][j] = 0;
+//			}
+//			//cout << map1[i][j]<<",";
+//		};
+//	}
+//
+//	//initGraph(map1,9,9, 0, 0, 0, 0);
+//	srcX = 0; srcY = 0;
+//	dstX = 4, dstY = 3;
+//	cout << printShortest()->size() << "\n";
+//	if (printShortest()->size() == 5)
+//	{
+//	}
+//	else
+//	{
+//		printf("从（%d，%d）不可到达（%d，%d）\n",
+//			srcX, srcY, dstX, dstY);
+//	}
+//
+//	int i = 0;
+//
+//	for each (Point var in *printShortest())
+//	{
+//		cout << i++ << ":";
+//		cout << var.x << " " << var.y << "\n";
+//	}
+//}
 
-int main(int argc, const char **argv)
+
+std::vector<Point>* getPath(int **map, int height, int width, int sx, int sy, int dx, int dy)
 {
-
-	int** map1 = new int*[9];
-	for (int i = 0; i < 9; i++)
-	{
-		map1[i] = new int[9];
-		for (int j = 0; j < 9; j++)
-		{
-			if (i + j == 8)
-				map1[i][j] = 1;
-			else
-			{
-				map1[i][j] = 0;
-			}
-			//cout << map1[i][j]<<",";
-		};
-	}
-
-	//initGraph(map1,9,9, 0, 0, 0, 0);
-	srcX = 0; srcY = 0;
-	dstX = 4, dstY = 3;
-	cout << printShortest()->size() << "\n";
-	if (printShortest()->size() == 5)
-	{
-	}
-	else
-	{
-		printf("从（%d，%d）不可到达（%d，%d）\n",
-			srcX, srcY, dstX, dstY);
-	}
-
-	int i = 0;
-
-	for each (Point var in *printShortest())
-	{
-		cout << i++ << ":";
-		cout << var.x << " " << var.y << "\n";
-	}
+	initGraph(map,9,9, 0, 0, 0, 0);
+	srcX = sx; srcY = sy;
+	dstX = dx, dstY = dy;
+	return  printShortest();
+	
 }

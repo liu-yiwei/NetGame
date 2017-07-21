@@ -5,13 +5,16 @@
 #include "bead.h"
 #include"CheckerBoard.h"
 #include"contants.h"
+#include "AStar.h"
+
+
 class QGraphicsScene;
 
 //整个游戏的状态：
 //没有棋子被选中，一个棋子被选中，正在运动，
 enum BoardState
 {
-	noChosed,oneChosed,oneMove
+	noChosed, oneChosed, oneMove
 };
 
 //控制所有游戏对象包括：view，scene，beads，
@@ -32,9 +35,11 @@ public:
 	void setState(BoardState state);
 	QTimer timer;
 	int gameSize;//棋盘边长
-	COOR* path;
 
 	CheckerBoard* checkerboard;
 	BoardState state;
+
+	std::vector<Point> * path;
+	int** map;
 
 };

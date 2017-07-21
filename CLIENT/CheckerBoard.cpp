@@ -27,4 +27,24 @@ CheckerBoard::~CheckerBoard()
 	delete array;
 }
 
+void CheckerBoard::addBead(int x, int y, BeadColor color) const
+{
+}
+
+void CheckerBoard::moveBeadTo(int sx, int sy, int dx, int dy)
+{
+}
+
+void CheckerBoard::chooseBead(int x, int y)
+{
+}
+
+void CheckerBoard::noChooseBead(int x, int y)
+{
+}
+
+void CheckerBoard::deleteBead(int x, int y)
+{
+}
+
 	
