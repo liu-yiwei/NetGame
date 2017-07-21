@@ -72,6 +72,9 @@
     <ClCompile Include="Bead.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AStar.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="CLIENT.qrc">
@@ -93,6 +96,9 @@
     </ClInclude>
     <ClInclude Include="CheckerBoard.h">
       <Filter>Header Files\modles</Filter>
+    </ClInclude>
+    <ClInclude Include="AStar.h">
+      <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

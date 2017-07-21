@@ -16,7 +16,8 @@ GameView::GameView(GameController* controller, QWidget* parent)
 void
 GameView::mousePressEvent(QMouseEvent* e)
 {
-	this->controller->generateBeads(e->x() / 40, e->y() / 40, BeadColor::blue);
+
+	this->controller->handleBead(e->x() / 40, e->y() / 40);
 }
 
 

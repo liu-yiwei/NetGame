@@ -14,6 +14,7 @@ class GameView :public QGraphicsView
 public:
 	explicit GameView(GameController* controller, QWidget* parent);
 
+
 protected:
 	void mousePressEvent(QMouseEvent* e) override;
 
@@ -22,6 +23,7 @@ private:
 
 
 	GameController* controller;
+
 };
 
 #endif // GAMEVIEW_H

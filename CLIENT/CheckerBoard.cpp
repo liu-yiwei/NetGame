@@ -27,10 +27,4 @@ CheckerBoard::~CheckerBoard()
 	delete array;
 }
 
-void
-CheckerBoard::addBead(int x, int y, BeadColor color) const
-{
-	array[x][y]->setVisible(true);
-	array[x][y]->set_color(color);
-	array[x][y]->set_direction(BeadDirection::still);
-}
+	

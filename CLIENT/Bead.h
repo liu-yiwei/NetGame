@@ -5,22 +5,26 @@
 #ifndef BEAD_H
 #define BEAD_H
 
-#include <QGraphicsItem>
+#include <QGraphicsObject>
 #include<QPainter>
+
+const QString strColor[9] = {"#FFFFFF","#FF3030","#4EEE94","#FF7F00","#4682B4","#FFFF00","#8B6969","#A0522D","#9400D3"};
 
 ////////////////////////////////////////
 //枚举生命
 enum BeadColor
 {
-	no,//没有棋子，实际上和下面的nothing重合
+	no ,//没有棋子，实际上和下面的nothing重合
 	red,
 	green,
-	black,
+	orange,
 	blue,
-	yellow
+	yellow,
+	RosyBrown,
+	Sienna,
+	DarkViolet
 };
-
-enum BeadDirection//棋子各状态分解
+enum BeadState//棋子各状态分解
 {
 	nothing,//啥东西也没有的时候
 	choosed,//棋子被选中的时候
@@ -29,7 +33,7 @@ enum BeadDirection//棋子各状态分解
 };
 
 class Bead
-	:public QGraphicsItem
+	:public QGraphicsObject
 {
 public:
 	//本函数仅仅在项目初始化的时候调用
@@ -41,17 +45,24 @@ public:
 	QPainterPath shape() const override;
 
 	//getter and setter
-	
-	//有关棋子行为的函数
 
+	//有关棋子行为的函数，就是状态的转换，由其他类来调用
+
+
+	//状态改变
+
+
+
+
+	//getter and setter
 	BeadColor getColor() const;
-	BeadDirection getDirection() const;
-	void set_color(BeadColor color);
-	void set_direction(BeadDirection direction);
+	BeadState getState() const;
+	void setColor(BeadColor color);
+	void setState(BeadState state);
 private:
 
 	BeadColor color;
-	BeadDirection direction;
+	BeadState state;
 };
 
 #endif

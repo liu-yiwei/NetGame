@@ -73,6 +73,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AStar.cpp" />
     <ClCompile Include="Bead.cpp" />
     <ClCompile Include="Bead.h" />
     <ClCompile Include="CheckerBoard.cpp" />
@@ -112,6 +113,7 @@
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AStar.h" />
     <ClInclude Include="CheckerBoard.h" />
     <ClInclude Include="contants.h" />
     <CustomBuild Include="GameController.h">

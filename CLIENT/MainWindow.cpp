@@ -11,10 +11,12 @@
 
 MainWindow::MainWindow(QWidget* parent)
 	: QMainWindow(parent),
-	centralWidget(new QWidget(this)),
-	game(new GameController(this)),
-	view (new GameView(game, centralWidget))
+	  centralWidget(new QWidget(this)),
+	  game(new GameController(this)),
+	  view(new GameView(game, centralWidget)),
+	  time(centralWidget)
 {
+	view->setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
 	setCentralWidget(centralWidget);
 	setFixedSize(600, 600);
 	createActions();

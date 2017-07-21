@@ -10,10 +10,12 @@ class QColor;
 class CheckerBoard:public QGraphicsScene
 {
 public:
-	explicit CheckerBoard(int gameSize, QObject* parent);
+	CheckerBoard(int gameSize, QObject* parent);
 	~CheckerBoard();
 
 	void addBead(int x, int y, BeadColor color) const;
+	void moveBeadTo(int sx, int sy, int dx, int dy);
+	void chooseBead(int x, int y);
 
 	Bead*** array;//TODO：出错记得看这里有问题没
 

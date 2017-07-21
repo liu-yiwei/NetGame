@@ -5,7 +5,7 @@
 #include<QMenuBar>
 #include "GameController.h"
 
-
+#include<QLCDNumber>
 class GameView;
 
 class MainWindow : public QMainWindow
@@ -26,7 +26,8 @@ private:
 	GameController* game;
 	GameView* view;
 
-	
+	QLCDNumber time;
+
 	QAction* aboutAction;
 };
 

@@ -2,10 +2,9 @@
 #include "contants.h"
 
 Bead::Bead()
-	: direction(BeadDirection::nothing),
+	: state(BeadState::nothing),
 	  color(BeadColor::no)
 {
-	
 	//set false 对应 nothing 和 no
 	this->setVisible(false);//初始化棋子实际上看不见，其实刚开始就每个地方都有妻子了，不过他吗不显示而已
 }
@@ -23,7 +22,8 @@ Bead::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
 	painter->save();
 	painter->setRenderHint(QPainter::Antialiasing);
-	painter->fillPath(shape(), QColor(Qt::red));
+	painter->setBrush(QColor( 155));
+	painter->fillPath(shape(), QColor(strColor[this->color]));
 	painter->restore();
 }
 
@@ -41,17 +41,19 @@ BeadColor Bead::getColor() const
 	return color;
 }
 
-BeadDirection Bead::getDirection() const
+BeadState Bead::getState() const
 {
-	return direction;
+	return state;
 }
 
-void Bead::set_color(BeadColor color)
+void Bead::setColor(BeadColor color)
 {
 	this->color = color;
 }
 
-void Bead::set_direction(BeadDirection direction)
+
+//状态改变，在同类setter里面这个比较重要
+void Bead::setState(BeadState direction)
 {
-	this->direction = direction;
+	this->state = direction;
 }
