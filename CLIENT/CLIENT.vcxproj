@@ -76,7 +76,6 @@
     <ClCompile Include="AStar.cpp" />
     <ClCompile Include="Bead.cpp" />
     <ClCompile Include="Bead.h" />
-    <ClCompile Include="CheckerBoard.cpp" />
     <ClCompile Include="GameController.cpp" />
     <ClCompile Include="GameView.cpp" />
     <ClCompile Include="GeneratedFiles\Debug\moc_GameController.cpp">
@@ -114,7 +113,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AStar.h" />
-    <ClInclude Include="CheckerBoard.h" />
     <ClInclude Include="contants.h" />
     <CustomBuild Include="GameController.h">
       <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(QTDIR)\bin\moc.exe;%(FullPath)</AdditionalInputs>

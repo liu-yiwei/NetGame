@@ -5,7 +5,7 @@
 
 GameView::GameView(GameController* controller, QWidget* parent)
 	: controller(controller),
-	  QGraphicsView(controller->checkerboard, parent)
+	  QGraphicsView(controller, parent)
 {
 	initBG();
 	setRenderHint(QPainter::Antialiasing);
