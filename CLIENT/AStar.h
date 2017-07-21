@@ -9,5 +9,5 @@ typedef struct
 
 
 
-std::vector<Point>* 
+std::vector<Point>
 getPath(int **map, int height, int width, int sx, int sy, int dx, int dy);

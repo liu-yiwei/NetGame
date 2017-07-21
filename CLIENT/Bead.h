@@ -1,9 +1,8 @@
+#pragma once
+
 ///////////////////////////////////////////
 //棋子类,和小旗子有关的一切行为都在这里
 //////////////////////////////////////////
-
-#ifndef BEAD_H
-#define BEAD_H
 
 #include <QGraphicsObject>
 #include<QPainter>
@@ -58,5 +57,3 @@ private:
 	BeadColor color;
 	BeadState state;
 };
-
-#endif

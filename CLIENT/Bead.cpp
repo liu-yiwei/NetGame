@@ -5,8 +5,7 @@ Bead::Bead()
 	: state(BeadState::nothing),
 	  color(BeadColor::no)
 {
-	//set false 对应 nothing 和 no
-	this->setVisible(false);//初始化棋子实际上看不见，其实刚开始就每个地方都有妻子了，不过他吗不显示而已
+
 }
 
 QRectF
@@ -21,9 +20,12 @@ void
 Bead::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
 {
 	painter->save();
+	
+	
 	painter->setRenderHint(QPainter::Antialiasing);
-	painter->setBrush(QColor( 155));
 	painter->fillPath(shape(), QColor(strColor[this->color]));
+	setScale(this->state == BeadState::choosed ? 1.3 : 1);
+	this->setVisible(!this->state == BeadState::nothing);
 	painter->restore();
 }
 
@@ -49,21 +51,15 @@ BeadState Bead::getState() const
 void Bead::setColor(BeadColor color)
 {
 	this->color = color;
+	update();
 }
 
 
 //状态改变，在同类setter里面这个比较重要
 void Bead::setState(BeadState direction)
 {
+	if (direction != nothing)
+		this->setVisible(true);
 	this->state = direction;
-}
-
-void Bead::toChoosed()
-{
-	this->setScale(1.33);
-}
-
-void Bead::toNoChoosed()
-{
-	this->setScale(1);
+	update();//改变了状态就更新
 }
