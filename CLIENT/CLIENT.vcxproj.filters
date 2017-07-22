@@ -71,6 +71,9 @@
     <CustomBuild Include="GameController.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="LoginDialog.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GameView.h">
@@ -81,6 +84,9 @@
     </ClInclude>
     <ClInclude Include="AStar.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_LoginDialog.h">
+      <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

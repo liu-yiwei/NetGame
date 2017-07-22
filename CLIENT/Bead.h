@@ -39,6 +39,7 @@ public:
 	QRectF boundingRect() const override;
 	void paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*) override;
 	QPainterPath shape() const override;
+	QPainterPath shadow() const;
 
 
 	//有关棋子行为的函数，就是状态的转换，由其他类来调用
@@ -48,6 +49,7 @@ public:
 	BeadState getState() const;
 	void setColor(BeadColor color);
 	void setState(BeadState state);
+	static BeadColor getColorByInt(int x);
 
 	//棋子选中状态的改变
 	void toChoosed();

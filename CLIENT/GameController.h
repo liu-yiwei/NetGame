@@ -9,7 +9,18 @@
 #include<vector>
 #include<time.h>
 #include<stdio.h>
+#include<iostream>
+#include<ctime>
 
+typedef struct{
+	int x;
+	int y;
+	BeadColor color;
+}p;
+typedef struct
+{
+	p one,two,three;
+} ThreeBeads;;
 
 class QGraphicsScene;
 
@@ -41,6 +52,8 @@ public:
 	void handleBead(int x, int y);//处理对一个棋子格子的点击事件
 	void setState(GameState state);
 
+	void generateThreeBeads();
+	static bool bEqual(p p1, p p2);
 public slots:
 	void move(int x, int y);
 
@@ -50,7 +63,7 @@ public slots:
 	int** map;
 
 	Point* choosed;//已被选中的坐标
-
+	ThreeBeads* nextBeads;
 	QTimer *timer;
 
 	//所有棋子都在这里
