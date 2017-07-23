@@ -16,7 +16,7 @@ public:
 	MainWindow(QWidget* parent = 0);
 	~MainWindow();
 
-private slots:
+	private slots:
 
 private:
 	void createActions();

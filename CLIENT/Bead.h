@@ -7,12 +7,12 @@
 #include <QGraphicsObject>
 #include<QPainter>
 
-const QString strColor[9] = {"#FFFFFF","#FF3030","#4EEE94","#FF7F00","#4682B4","#FFFF00","#8B6969","#A0522D","#9400D3"};
+const QString strColor[9] = { "#FFFFFF","#FF3030","#4EEE94","#FF7F00","#4682B4","#FFFF00","#8B6969","#A0522D","#9400D3" };
 
 ////////////////////////////////////////
 enum BeadColor
 {
-	no ,//没有棋子，实际上和下面的nothing重合
+	no,//没有棋子，实际上和下面的nothing重合
 	red,
 	green,
 	orange,

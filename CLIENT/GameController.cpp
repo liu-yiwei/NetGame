@@ -5,17 +5,17 @@
 
 GameController::GameController(QObject* parent)
 	: QGraphicsScene(parent),
-	  state(GameState::noChosed),
-	  size(9),
-	  nextBeads(new ThreeBeads),
-	  choosed(new Point)
+	state(GameState::noChosed),
+	size(9),
+	nextBeads(new ThreeBeads),
+	choosed(new Point)
 {
 	srand(time(0));
 	this->setSceneRect(0, 0, 9 * 40, 9 * 40);
 
 
 	//初始化数组
-	array = new Bead** [size];
+	array = new Bead**[size];
 	for (int i = 0; i < size; ++i)
 	{
 		array[i] = new Bead*[size];
@@ -42,9 +42,9 @@ GameController::GameController(QObject* parent)
 
 GameController::GameController(int size, QObject* parent)
 	: QGraphicsScene(parent),
-	  size(size),
-	  state(GameState::noChosed),
-	  timer(new QTimer(this))
+	size(size),
+	state(GameState::noChosed),
+	timer(new QTimer(this))
 {
 	this->setSceneRect(0, 0, size * 40, size * 40);
 }
@@ -88,14 +88,14 @@ GameController::moveBeadTo(int sx, int sy, int dx, int dy)
 
 	for (int i = 0; i < path.size(); i++)
 	{
-		for(int j = 0;j<100000;j++)
+		for (int j = 0; j<100000; j++)
 		{
 			printf("adsfasdfasdfadsf");
 		}
 		this->array[path[i].x][path[i].y]->setState(BeadState::still);
-		
+
 		this->array[path[i].x][path[i].y]->setColor(BeadColor::green);
-		
+
 	}
 
 	for (int i = 0; i < path.size(); i++)
@@ -105,7 +105,7 @@ GameController::moveBeadTo(int sx, int sy, int dx, int dy)
 		this->array[path[i].x][path[i].y]->setColor(BeadColor::no);
 
 	}
-	
+
 	this->setState(GameState::noChosed);
 }
 
@@ -176,7 +176,7 @@ void GameController::generateThreeBeads()
 		nextBeads->one.x = rand() % size;
 		nextBeads->one.y = rand() % size;
 		nextBeads->one.color = Bead::getColorByInt(rand() * rand() % 7 + 1);
-		if (this->array[nextBeads->one.x][nextBeads->one.y]->getState() == BeadState::nothing) 
+		if (this->array[nextBeads->one.x][nextBeads->one.y]->getState() == BeadState::nothing)
 			break;
 	}
 
@@ -196,9 +196,9 @@ void GameController::generateThreeBeads()
 	{
 		nextBeads->three.x = rand() % size;
 		nextBeads->three.y = rand() % size;
-		nextBeads->three.color = Bead::getColorByInt(rand() % 7 + 1);
+		nextBeads->three.color = Bead::getColorByInt(rand()*rand() / rand() % 7 + 1);
 		if (!(bEqual(nextBeads->one, nextBeads->three)
-			|| bEqual(nextBeads->two, nextBeads->three)
+			&& !bEqual(nextBeads->two, nextBeads->three)
 			&& this->array[nextBeads->three.x][nextBeads->three.y]->getState() == BeadState::nothing))
 			break;
 	}
@@ -211,7 +211,7 @@ void GameController::generateThreeBeads()
 bool
 GameController::bEqual(p p1, p p2)
 {
-	if (p1.x == p2.x && p1.y == p2.y)
+	if (p1.x == p2.x && p1.y == p2.y && p1.color == p2.color)
 		return true;
 	return false;
 }

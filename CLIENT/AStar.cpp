@@ -50,14 +50,14 @@ typedef struct //优先队列（Open表）
 
 const Point dir[8] =
 {
-	{0, 1}, // East
-	{1, 1}, // South_East
-	{1, 0}, // South
-	{1, -1}, // South_West
-	{0, -1}, // West
-	{-1, -1}, // North_West
-	{-1, 0}, // North
-	{-1, 1} // North_East
+	{ 0, 1 }, // East
+	{ 1, 1 }, // South_East
+	{ 1, 0 }, // South
+	{ 1, -1 }, // South_West
+	{ 0, -1 }, // West
+	{ -1, -1 }, // North_West
+	{ -1, 0 }, // North
+	{ -1, 1 } // North_East
 };
 
 static MapNode graph[9][9];
@@ -111,7 +111,7 @@ void initClose(Close cls[Height][Width], int sx, int sy, int dx, int dy)
 		}
 	}
 	cls[sx][sy].F = cls[sx][sy].H; //起始点评价初始值
-	//    cls[sy][sy].G = 0;                        //移步花费代价值
+								   //    cls[sy][sy].G = 0;                        //移步花费代价值
 	cls[dx][dy].G = Infinity;
 }
 
@@ -178,7 +178,7 @@ void initGraph(int** map, int height, int width, int sx, int sy, int dx, int dy)
 
 int astar()
 { // A*算法遍历
-	//int times = 0;
+  //int times = 0;
 	int i, curX, curY, surX, surY;
 	float surG;
 	Open q; //Open表
@@ -329,6 +329,6 @@ std::vector<Point> getPath(int** map, int height, int width, int sx, int sy, int
 	initGraph(map, 9, 9, 0, 0, 0, 0);
 	srcX = sx;
 	srcY = sy;
-	dstX = dx , dstY = dy;
+	dstX = dx, dstY = dy;
 	return printShortest(map);
 }

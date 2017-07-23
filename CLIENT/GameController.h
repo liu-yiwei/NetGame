@@ -12,14 +12,14 @@
 #include<iostream>
 #include<ctime>
 
-typedef struct{
+typedef struct {
 	int x;
 	int y;
 	BeadColor color;
 }p;
 typedef struct
 {
-	p one,two,three;
+	p one, two, three;
 } ThreeBeads;;
 
 class QGraphicsScene;
@@ -54,7 +54,7 @@ public:
 
 	void generateThreeBeads();
 	static bool bEqual(p p1, p p2);
-public slots:
+	public slots:
 	void move(int x, int y);
 
 

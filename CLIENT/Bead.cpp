@@ -3,7 +3,7 @@
 
 Bead::Bead()
 	: state(BeadState::nothing),
-	  color(BeadColor::no)
+	color(BeadColor::no)
 {
 }
 
@@ -11,7 +11,7 @@ QRectF
 Bead::boundingRect() const
 {
 	return QRectF(-TILE_SIZE, -TILE_SIZE,
-	              TILE_SIZE * 2, TILE_SIZE * 2);
+		TILE_SIZE * 2, TILE_SIZE * 2);
 }
 
 // »æÖÆ Ìî³äcolor
@@ -23,9 +23,9 @@ Bead::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
 
 	painter->setRenderHint(QPainter::Antialiasing);
 	if (this->state == BeadState::choosed)
-		painter->fillPath(shadow(), QColor(strColor[4]));
+		painter->fillPath(shadow(), QColor(Qt::gray));
 	painter->fillPath(shape(), QColor(strColor[this->color]));
-	
+
 
 	this->setVisible(!this->state == BeadState::nothing);
 	painter->restore();
@@ -94,6 +94,8 @@ Bead::getColorByInt(int x)
 		return BeadColor::RosyBrown;
 	case(7):
 		return BeadColor::Sienna;
+	default:
+		return BeadColor::no;
 	}
 
 }

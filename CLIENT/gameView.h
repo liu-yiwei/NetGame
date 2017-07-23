@@ -9,7 +9,7 @@
 class GameView :public QGraphicsView
 {
 public:
-	 GameView(GameController* controller, QWidget* parent);
+	GameView(GameController* controller, QWidget* parent);
 
 
 protected:
