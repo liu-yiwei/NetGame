@@ -3,13 +3,13 @@
 
 #include<QGraphicsView>
 #include<QMouseEvent>
-
+#include <QMainWindow>
 #include"GameController.h"
 
 class GameView :public QGraphicsView
 {
 public:
-	GameView(GameController* controller, QWidget* parent);
+	GameView(GameController* controller,QMainWindow* mainWindow, QWidget* parent);
 
 
 protected:

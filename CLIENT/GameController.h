@@ -11,7 +11,6 @@
 #include<stdio.h>
 #include<iostream>
 #include<ctime>
-
 typedef struct {
 	int x;
 	int y;
@@ -32,13 +31,14 @@ enum GameState
 	oneChosed,
 	oneMove
 };
+class MainWindow;
 
 //维护一个棋盘，完整包含一个棋盘的所有东西
 //这个类负责执行具体的操作
 class GameController :public QGraphicsScene
 {
 public:
-	GameController(QObject* parent);
+	GameController(MainWindow *mainWindow);
 	GameController(int gameSize, QObject* parent);
 	~GameController();
 
@@ -47,6 +47,8 @@ public:
 	void noChooseBead(int x, int y);
 	void moveBeadTo(int sx, int sy, int dx, int dy);
 	void move();
+
+	void moveOne(int x, int y, int dx, int dy);
 
 	void deleteBead(int x, int y);
 	void handleBead(int x, int y);//处理对一个棋子格子的点击事件
@@ -64,11 +66,14 @@ public:
 
 	Point* choosed;//已被选中的坐标
 	ThreeBeads* nextBeads;
-	QTimer *timer;
 
 	//所有棋子都在这里
 	Bead*** array;//TODO：出错记得看这里有问题没
 
 private:
 	int size;
+	MainWindow *m_mainWindow;
+
+	QTimeLine *timer;
+	QGraphicsItemAnimation *animation;
 };

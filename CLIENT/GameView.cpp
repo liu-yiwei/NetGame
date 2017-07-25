@@ -1,9 +1,10 @@
 #include "gameview.h"
 #include "Bead.h"
+#include <QMainWindow>
 #include "contants.h"
 #include<GameController.h>
 
-GameView::GameView(GameController* controller, QWidget* parent)
+GameView::GameView(GameController* controller,QMainWindow *mainWindow, QWidget* parent)
 	: controller(controller),
 	QGraphicsView(controller, parent)
 {

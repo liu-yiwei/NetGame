@@ -8,7 +8,7 @@
 
 #ifndef UI_LOGINDIALOG_H
 #define UI_LOGINDIALOG_H
-
+#include <QMessageBox>
 #include <QtCore/QVariant>
 #include <QtWidgets/QAction>
 #include <QtWidgets/QApplication>
@@ -23,13 +23,12 @@
 #include <QtWidgets/QTextBrowser>
 #include <QtWidgets/QWidget>
 
-QT_BEGIN_NAMESPACE
 
 class Ui_Dialog
 	:public QDialog
 {
 public:
-	QPushButton *pushButton;
+	QPushButton pushButton;
 	QGroupBox *groupBox;
 	QWidget *formLayoutWidget;
 	QFormLayout *formLayout;
@@ -44,8 +43,10 @@ public:
 	QPushButton *pushButton_2;
 	QTextBrowser *textBrowser;
 	Ui_Dialog()
+		:pushButton(this)
 	{
 		setupUi(this);
+		setupActions(this);
 	}
 
 	void setupUi(QDialog *Dialog)
@@ -53,9 +54,9 @@ public:
 		if (Dialog->objectName().isEmpty())
 			Dialog->setObjectName(QStringLiteral("Dialog"));
 		Dialog->resize(170, 321);
-		pushButton = new QPushButton(Dialog);
-		pushButton->setObjectName(QStringLiteral("pushButton"));
-		pushButton->setGeometry(QRect(10, 10, 151, 23));
+		
+		pushButton.setObjectName(QStringLiteral("pushButton"));
+		pushButton.setGeometry(QRect(10, 10, 151, 23));
 		groupBox = new QGroupBox(Dialog);
 		groupBox->setObjectName(QStringLiteral("groupBox"));
 		groupBox->setGeometry(QRect(0, 40, 171, 161));
@@ -120,7 +121,7 @@ public:
 	void retranslateUi(QDialog *Dialog)
 	{
 		Dialog->setWindowTitle(QApplication::translate("Dialog", "Dialog", Q_NULLPTR));
-		pushButton->setText(QApplication::translate("Dialog", "\345\215\225\346\234\272\346\270\270\346\210\217", Q_NULLPTR));
+		pushButton.setText(QApplication::translate("Dialog", "\345\215\225\346\234\272\346\270\270\346\210\217", Q_NULLPTR));
 		groupBox->setTitle(QApplication::translate("Dialog", "\350\201\224\346\234\272", Q_NULLPTR));
 		Label->setText(QApplication::translate("Dialog", "\346\234\215\345\212\241\345\231\250\357\274\232", Q_NULLPTR));
 		Label_2->setText(QApplication::translate("Dialog", "\347\253\257\345\217\243\357\274\232", Q_NULLPTR));
@@ -139,12 +140,16 @@ public:
 			"<p align=\"center\" dir='rtl' style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px; color:#55aa7f;\"><br /></p></body></html>", Q_NULLPTR));
 	} // retranslateUi
 
+public:
+	void setupActions(QDialog *Dialog) {
+		connect(&pushButton, &QPushButton::clicked, this, &Ui_Dialog::offlineGame);
+		connect(pushButton_2, &QPushButton::clicked, this, &Ui_Dialog::onlineGame);
+	}
+
+public slots:
+	void offlineGame();
+	void onlineGame();
+
 };
-
-namespace Ui {
-	class Dialog : public Ui_Dialog {};
-} // namespace Ui
-
-QT_END_NAMESPACE
 
 #endif // UI_LOGINDIALOG_H

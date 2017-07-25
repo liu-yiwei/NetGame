@@ -1,3 +1,6 @@
+#if _MSC_VER >= 1600
+#pragma execution_character_set("utf-8")
+#endif
 /********************************************************************************
 ** Form generated from reading UI file 'SMainWindow.ui'
 **
@@ -7,6 +10,8 @@
 ********************************************************************************/
 
 #pragma once
+
+
 #include <QtCore/QVariant>
 #include <QtWidgets/QApplication>
 #include <QtWidgets/QComboBox>
@@ -21,10 +26,11 @@
 #include <QtWidgets/QStatusBar>
 #include <QtWidgets/QTableWidget>
 #include <QtWidgets/QWidget>
+#include <QtWidgets/QTextBrowser>
+#include "LogWidget.h"
 
-#include "IOCPModel.h"
-
-class IOCPModel;
+#include "Server.h"
+//#include "IOCPModel.h"
 
 class Ui_MainWindow
 	:public QMainWindow
@@ -35,7 +41,9 @@ public:
 	QAction* action_2;
 	QWidget* centralwidget;
 	QTableView* tableView_userInfo;
-	QTableWidget* tableWidget_logInfo;
+	LogWidget* logWidget_logInfo;
+	QTableWidget* tablewidget_roomInfo;
+
 	QGroupBox* groupBox;
 	QWidget* formLayoutWidget;
 	QFormLayout* formLayout;
@@ -64,8 +72,6 @@ public:
 	QMenu* menu;
 	QMenu* menu_2;
 	QStatusBar* statusbar;
-private:
-	CIOCPModel m_IOCP; // 主要对象，完成端口模型
 
 
 	void setupUi(QMainWindow* MainWindow)
@@ -85,9 +91,15 @@ private:
 		tableView_userInfo->setObjectName(QStringLiteral("tableView_userInfo"));
 		tableView_userInfo->setEnabled(true);
 		tableView_userInfo->setGeometry(QRect(300, 30, 451, 251));
-		tableWidget_logInfo = new QTableWidget(centralwidget);
-		tableWidget_logInfo->setObjectName(QStringLiteral("tableWidget_logInfo"));
-		tableWidget_logInfo->setGeometry(QRect(10, 300, 741, 171));
+
+		logWidget_logInfo = new LogWidget(centralwidget);
+		logWidget_logInfo->setObjectName(QStringLiteral("tableWidget_logInfo"));
+		logWidget_logInfo->setGeometry(QRect(10, 300, 461, 171));
+
+		tablewidget_roomInfo = new QTableWidget(centralwidget);
+		tablewidget_roomInfo->setObjectName(QStringLiteral("tablewidget_roomInfo"));
+		tablewidget_roomInfo->setGeometry(QRect(481,300,260,171));
+
 		groupBox = new QGroupBox(centralwidget);
 		groupBox->setObjectName(QStringLiteral("groupBox"));
 		groupBox->setGeometry(QRect(10, 10, 271, 171));
@@ -143,7 +155,7 @@ private:
 		radioButton_2 = new QRadioButton(groupBox);
 		radioButton_2->setObjectName(QStringLiteral("radioButton_2"));
 		radioButton_2->setGeometry(QRect(10, 140, 71, 21));
-		
+
 		QFont font1;
 		font1.setFamily(QString::fromUtf8("\345\276\256\350\275\257\351\233\205\351\273\221"));
 		font1.setPointSize(8);
@@ -212,6 +224,7 @@ private:
 
 	void retranslateUi(QMainWindow* MainWindow)
 	{
+		
 		MainWindow->setWindowTitle(QApplication::translate("MainWindow", "MainWindow", Q_NULLPTR));
 		actionAbout->setText(QApplication::translate("MainWindow", "About", Q_NULLPTR));
 		action->setText(QApplication::translate("MainWindow", "\345\220\257\345\212\250", Q_NULLPTR));
@@ -249,12 +262,13 @@ private:
 	} // retranslateUi
 
 public:
-	Ui_MainWindow(QWidget* parent = 0);// 标准构造函数
-	inline void addLog(const std::string str)
-	{
-		
-	}
+	Ui_MainWindow(QWidget* parent = 0);// 锟斤拷准锟斤拷锟届函锟斤拷
+
 private:
-	void Init();
+	
+	//CIOCPModel *m_IOCP;
+	//void Init();
+	Server* m_server;
+	
 
 };

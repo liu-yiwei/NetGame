@@ -6,6 +6,8 @@
 
 #include <QGraphicsObject>
 #include<QPainter>
+#include <QGraphicsItemAnimation>
+#include <QTimeLine>
 
 const QString strColor[9] = { "#FFFFFF","#FF3030","#4EEE94","#FF7F00","#4682B4","#FFFF00","#8B6969","#A0522D","#9400D3" };
 

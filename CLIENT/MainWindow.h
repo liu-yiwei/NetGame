@@ -16,6 +16,7 @@ public:
 	MainWindow(QWidget* parent = 0);
 	~MainWindow();
 
+	
 	private slots:
 
 private:
@@ -26,9 +27,11 @@ private:
 	GameController* game;
 	GameView* view;
 
-	QLCDNumber time;
+
 
 	QAction* aboutAction;
+public:
+	QLCDNumber* score;
 };
 
 #endif // MAINWINDOW_H

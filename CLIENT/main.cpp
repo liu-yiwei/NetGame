@@ -1,15 +1,15 @@
-#include "MainWindow.h"
-#include"ui_LoginDialog.h"
 #include <QApplication>
-
-
-int main(int argc, char *argv[])
+#include <QGraphicsItemAnimation>
+#include <QGraphicsScene>
+#include <QGraphicsView>
+#include <QGraphicsItem>
+#include <QTimeLine>
+#include "MainWindow.h"
+int main(int argc, char * argv[])
 {
-	QApplication a(argc, argv);
-
-	//	Ui_Dialog lgoin;
-	//	lgoin.show();
+	QApplication app(argc, argv);
 	MainWindow w;
 	w.show();
-	return a.exec();
+	app.exec();
+
 }

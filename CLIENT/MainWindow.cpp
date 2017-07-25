@@ -8,17 +8,19 @@
 #include"GameController.h"
 #include "contants.h"
 #include"GameView.h"
+#include <QDateTime>
 
 MainWindow::MainWindow(QWidget* parent)
 	: QMainWindow(parent),
 	centralWidget(new QWidget(this)),
-	game(new GameController(this)),
-	view(new GameView(game, centralWidget)),
-	time(centralWidget)
+	score(new QLCDNumber( centralWidget)),
+	game(new GameController(this)),//ÆæÌØµÄ¼Ü¹¹
+	view(new GameView(game,this, centralWidget))
 {
+	qsrand(QTime(0, 0, 0).secsTo(QTime::currentTime()));
 	view->setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
 	setCentralWidget(centralWidget);
-	setFixedSize(600, 600);
+	setFixedSize(600, 390);
 	createActions();
 	createMenus();
 }

@@ -7,7 +7,7 @@
 #include <assert.h>//todo:可能用到了另一种断言
 #include<QMainWindow>
 #include<iostream>
-
+#include "stdafx.h"
 
 // winsock 2 的头文件和库
 #include <winsock2.h>
@@ -21,7 +21,7 @@
 // 默认端口
 #define DEFAULT_PORT          12345    
 // 默认IP地址
-#define DEFAULT_IP            _T("127.0.0.1")
+#define DEFAULT_IP            "127.0.0.1"
 
 //////////////////////////////////////////////////////////////////
 // 在完成端口上投递的I/O操作的类型
@@ -89,9 +89,9 @@ typedef struct _PER_SOCKET_CONTEXT
 	SOCKET      m_Socket;                                  // 每一个客户端连接的Socket
 	SOCKADDR_IN m_ClientAddr;                              // 客户端的地址
 	std::vector<_PER_IO_CONTEXT*> m_arrayIoContext;             // 客户端网络操作的上下文数据，
-		//todo:使用vector替代了carray												   // 也就是说对于每一个客户端Socket，是可以在上面同时投递多个IO请求的
+																//todo:使用vector替代了carray												   // 也就是说对于每一个客户端Socket，是可以在上面同时投递多个IO请求的
 
-														   // 初始化
+																// 初始化
 	_PER_SOCKET_CONTEXT()
 	{
 		m_Socket = INVALID_SOCKET;
@@ -135,7 +135,7 @@ typedef struct _PER_SOCKET_CONTEXT
 			{
 				delete pContext;
 				pContext = NULL;
-				m_arrayIoContext.erase(m_arrayIoContext.begin()+i);
+				m_arrayIoContext.erase(m_arrayIoContext.begin() + i);
 				break;
 			}
 		}
@@ -151,7 +151,9 @@ typedef struct _PER_SOCKET_CONTEXT
 //====================================================================================
 
 // 工作者线程的线程参数
+
 class CIOCPModel;
+
 typedef struct _tagThreadParams_WORKER
 {
 	CIOCPModel* pIOCPModel;                                   // 类指针，用于调用类中的函数
@@ -241,7 +243,7 @@ protected:
 	bool _IsSocketAlive(SOCKET s);
 
 	// 在主界面中显示信息
-//	void _ShowMessage(const std::vector<std::string> szFormat, ...) const;
+	static CString _FormatMessage(const CString szFormat, ...) ;
 
 
 private:

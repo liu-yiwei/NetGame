@@ -1,10 +1,11 @@
 #include "bead.h"
 #include "contants.h"
-
+#include <QGraphicsColorizeEffect>
 Bead::Bead()
 	: state(BeadState::nothing),
 	color(BeadColor::no)
 {
+
 }
 
 QRectF
@@ -22,8 +23,13 @@ Bead::paint(QPainter* painter, const QStyleOptionGraphicsItem*, QWidget*)
 
 
 	painter->setRenderHint(QPainter::Antialiasing);
-	if (this->state == BeadState::choosed)
+	if (this->state == BeadState::choosed) {
+		
 		painter->fillPath(shadow(), QColor(Qt::gray));
+	}
+QGraphicsColorizeEffect e = new QGraphicsColorizeEffect(Q_NULLPTR);
+		e.setColor(QColor(0, 0, 0));
+	this->setGraphicsEffect(&e);
 	painter->fillPath(shape(), QColor(strColor[this->color]));
 
 
