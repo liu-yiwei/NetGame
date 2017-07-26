@@ -17,7 +17,6 @@ GameView::GameView(GameController* controller,QMainWindow *mainWindow, QWidget* 
 void
 GameView::mousePressEvent(QMouseEvent* e)
 {
-
 	this->controller->handleBead(e->x() / 40, e->y() / 40);
 }
 

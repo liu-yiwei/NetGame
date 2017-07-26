@@ -15,18 +15,19 @@ MainWindow::MainWindow(QWidget* parent)
 	centralWidget(new QWidget(this)),
 	score(new QLCDNumber( centralWidget)),
 	game(new GameController(this)),//ÆæÌØµÄ¼Ü¹¹
-	view(new GameView(game,this, centralWidget))
+	view(new GameView(game,this, centralWidget)),
+	view2(new QGraphicsView(game,centralWidget))
 {
-
-
-	qsrand(QTime(0, 0, 0).secsTo(QTime::currentTime()));
 	view->setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
+	
+	
 	setCentralWidget(centralWidget);
-	setFixedSize(460, 387);
+	setFixedSize(480, 387);
 
-	this->score->setGeometry(360, 0, 100, 50);
-	score->display("0");
+	
 
+	
+	initUI();
 	createActions();
 	createMenus();
 }
@@ -36,6 +37,23 @@ MainWindow::~MainWindow()
 	delete this->game;
 }
 
+
+void
+MainWindow::initUI() {
+
+	this->score->setGeometry(361, 1, 120, 40);
+	score->display(0);
+	view2->setGeometry(361, 121, 120, 40);
+	QPixmap bg(40, 40);
+	QPainter p(&bg);
+	p.setBrush(QBrush("#AEEEEE"));
+	p.drawRect(0, 0, 40, 40);
+
+	view2->setBackgroundBrush(QBrush(bg));
+	view2->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+	view2->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+	view2->setSceneRect(320, 120, 120, 40);
+}
 
 void
 MainWindow::createMenus()

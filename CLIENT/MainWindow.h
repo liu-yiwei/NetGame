@@ -15,18 +15,18 @@ class MainWindow : public QMainWindow
 public:
 	MainWindow(QWidget* parent = 0);
 	~MainWindow();
-
+	void initUI();
 	
-	private slots:
 
-private:
+protected:
 	void createActions();
+	
 	void createMenus();
 
 	QWidget* centralWidget;
 	GameController* game;
 	GameView* view;
-
+	QGraphicsView * view2;
 
 
 	QAction* aboutAction;

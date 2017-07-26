@@ -19,6 +19,12 @@
       <Extensions>moc;h;cpp</Extensions>
       <SourceControlFiles>False</SourceControlFiles>
     </Filter>
+    <Filter Include="Header Files\online">
+      <UniqueIdentifier>{138a9a75-6ece-49ee-a31b-254c488cc5b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\online">
+      <UniqueIdentifier>{305ff379-6b4b-401c-ab9a-6ae88b7c6568}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -48,14 +54,17 @@
     <ClCompile Include="ui_LoginDialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="OnLineMainWindow.h">
-      <Filter>Header Files</Filter>
-    </ClCompile>
     <ClCompile Include="GeneratedFiles\Debug\moc_GameController.cpp">
       <Filter>Generated Files</Filter>
     </ClCompile>
     <ClCompile Include="GeneratedFiles\Release\moc_GameController.cpp">
       <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="OnlineGame.cpp">
+      <Filter>Source Files\online</Filter>
+    </ClCompile>
+    <ClCompile Include="OnLineMainWindow.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -80,6 +89,12 @@
       <Filter>Header Files</Filter>
     </CustomBuild>
     <CustomBuild Include="GameController.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="OnlineGame.h">
+      <Filter>Header Files\online</Filter>
+    </CustomBuild>
+    <CustomBuild Include="OnLineMainWindow.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
