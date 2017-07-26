@@ -9,6 +9,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Astar", "Astar\Astar.vcxpro
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "CLIENT", "CLIENT\CLIENT.vcxproj", "{B12702AD-ABFB-343A-A199-8E24837244A3}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "testservr", "testservr\testservr.vcxproj", "{8D25E7FE-CE8A-4768-B586-FAED3D98BFC8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -55,6 +57,16 @@ Global
 		{B12702AD-ABFB-343A-A199-8E24837244A3}.test|x64.Build.0 = Release|x64
 		{B12702AD-ABFB-343A-A199-8E24837244A3}.test|x86.ActiveCfg = Release|x64
 		{B12702AD-ABFB-343A-A199-8E24837244A3}.test|x86.Build.0 = Release|x64
+		{8D25E7FE-CE8A-4768-B586-FAED3D98BFC8}.Debug|x64.ActiveCfg = Debug|x64
+		{8D25E7FE-CE8A-4768-B586-FAED3D98BFC8}.Debug|x64.Build.0 = Debug|x64
+		{8D25E7FE-CE8A-4768-B586-FAED3D98BFC8}.Debug|x86.ActiveCfg = Debug|x64
+		{8D25E7FE-CE8A-4768-B586-FAED3D98BFC8}.Release|x64.ActiveCfg = Release|x64
+		{8D25E7FE-CE8A-4768-B586-FAED3D98BFC8}.Release|x64.Build.0 = Release|x64
+		{8D25E7FE-CE8A-4768-B586-FAED3D98BFC8}.Release|x86.ActiveCfg = Release|x64
+		{8D25E7FE-CE8A-4768-B586-FAED3D98BFC8}.test|x64.ActiveCfg = Release|x64
+		{8D25E7FE-CE8A-4768-B586-FAED3D98BFC8}.test|x64.Build.0 = Release|x64
+		{8D25E7FE-CE8A-4768-B586-FAED3D98BFC8}.test|x86.ActiveCfg = Release|x64
+		{8D25E7FE-CE8A-4768-B586-FAED3D98BFC8}.test|x86.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

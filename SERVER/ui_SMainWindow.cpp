@@ -12,7 +12,8 @@ Ui_MainWindow::Ui_MainWindow(QWidget * parent)
 	//m_IOCP(new CIOCPModel())
 {
 	setupUi(this);
-	m_server = new Server(this,8888);
+	m_server = new GameServer(this,8888);
+	m_server->listen(QHostAddress::Any, 6666);
 	//m_IOCP->setMainWindow(this);
 	//Init();
 }

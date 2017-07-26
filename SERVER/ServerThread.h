@@ -8,7 +8,6 @@
 class ServerThread : public QThread
 {
 	Q_OBJECT
-
 public:
 	ServerThread(int socketDescriptor, const QString &fortune, QObject *parent);
 
@@ -17,7 +16,7 @@ public:
 signals:
 	void error(QTcpSocket::SocketError socketError);
 
-private slots:
+private slots :
 	void readMsg();
 	void sendMsg();
 

@@ -37,6 +37,7 @@ class MainWindow;
 //这个类负责执行具体的操作
 class GameController :public QGraphicsScene
 {
+	Q_OBJECT
 public:
 	GameController(MainWindow *mainWindow);
 	GameController(int gameSize, QObject* parent);
@@ -56,8 +57,8 @@ public:
 
 	void generateThreeBeads();
 	static bool bEqual(p p1, p p2);
-	public slots:
-	void move(int x, int y);
+
+
 
 
 	GameState state;
@@ -69,9 +70,12 @@ public:
 
 	//所有棋子都在这里
 	Bead*** array;//TODO：出错记得看这里有问题没
-
+	//移动结束之后的扫尾工作，包括
+	public slots:
+	void affterMoveAni();
 private:
 	int size;
+	int score;
 	MainWindow *m_mainWindow;
 
 	QTimeLine *timer;

@@ -17,10 +17,16 @@ MainWindow::MainWindow(QWidget* parent)
 	game(new GameController(this)),//ÆæÌØµÄ¼Ü¹¹
 	view(new GameView(game,this, centralWidget))
 {
+
+
 	qsrand(QTime(0, 0, 0).secsTo(QTime::currentTime()));
 	view->setViewportUpdateMode(QGraphicsView::BoundingRectViewportUpdate);
 	setCentralWidget(centralWidget);
-	setFixedSize(600, 390);
+	setFixedSize(460, 387);
+
+	this->score->setGeometry(360, 0, 100, 50);
+	score->display("0");
+
 	createActions();
 	createMenus();
 }

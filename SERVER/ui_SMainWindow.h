@@ -268,7 +268,7 @@ private:
 	
 	//CIOCPModel *m_IOCP;
 	//void Init();
-	Server* m_server;
+	GameServer* m_server;
 	
 
 };

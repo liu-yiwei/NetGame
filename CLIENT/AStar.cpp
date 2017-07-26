@@ -268,9 +268,43 @@ std::vector<Point> printShortest(int** map)
 			a.x = p->cur->x;
 			a.y = p->cur->y;
 			//todo:把斜线转换成方格的技术
+			if (list.size()!=0 && a.x !=list[list.size()-1].x && a.y != list[list.size()-1].y)//斜线
+			{
+				if (map[list[list.size()-1].x][a.y] == 0)
+				{
+					Point mm;
+					mm.x = list[list.size() - 1].x;
+					mm.y = a.y;
+					list.push_back(mm);
+				}
+				else
+				{
+					Point mm;
+					mm.y = list[list.size() - 1].y;
+					mm.x = a.x;
+					list.push_back(mm);
+				}
+			}
 			list.push_back(a);
 			p = p->from;
 			step++;
+		}
+		if (a.x != list[list.size() - 1].x && a.y != list[list.size() - 1].y)//斜线
+		{
+			if (map[list[list.size() - 1].x][a.y] == 0)
+			{
+				Point mm;
+				mm.x = list[list.size() - 1].x;
+				mm.y = a.y;
+				list.push_back(mm);
+			}
+			else
+			{
+				Point mm;
+				mm.y = list[list.size() - 1].y;
+				mm.x = a.x;
+				list.push_back(mm);
+			}
 		}
 		a.x = p->cur->x;
 		a.y = p->cur->y;
